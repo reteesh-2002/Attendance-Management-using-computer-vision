@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Attendance Logs</h2>
+    {% if dates %}
+    <ul>
+        {% for date in dates %}
+        <li style="margin-bottom: 0.5rem;">
+            <a href="{{ url_for('attendance_detail', date=date) }}"
+                style="font-size: 1.1rem; color: var(--primary-color); text-decoration: none;">
+                {{ date }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No attendance logs found.</p>
+    {% endif %}
+</div>
+{% endblock %}

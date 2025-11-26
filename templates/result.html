@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Processing Complete</h2>
+
+    <div class="stats">
+        <div class="stat-item">
+            <span class="stat-value">{{ stats.total_frames }}</span>
+            <span class="stat-label">Total Frames</span>
+        </div>
+        <!-- Add more stats if available -->
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <h3>Downloads</h3>
+        <p>
+            <a href="{{ url_for('download_video', filename=video_file) }}" class="btn">Download Output Video</a>
+        </p>
+        <p>
+            <a href="{{ url_for('download_log', filename=log_file) }}" class="btn"
+                style="background-color: #10b981;">Download Attendance Log</a>
+        </p>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <a href="{{ url_for('attendance_list') }}">View All Attendance Logs</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Process Video</h2>
+    <form action="{{ url_for('process') }}" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="video">Select Video File</label>
+            <input type="file" name="video" id="video" accept="video/*" required>
+        </div>
+
+        <div class="form-group">
+            <label for="window_seconds">Attendance Window (seconds)</label>
+            <input type="number" name="window_seconds" id="window_seconds" value="600">
+        </div>
+
+        <button type="submit" class="btn">Start Processing</button>
+    </form>
+</div>
+{% endblock %}

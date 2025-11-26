@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Attendance for {{ date }}</h2>
+    {% if records %}
+    <table>
+        <thead>
+            <tr>
+                <th>Window</th>
+                <th>Name</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in records %}
+            <tr>
+                <td>{{ row["Window"] }}</td>
+                <td>{{ row["Name"] }}</td>
+                <td>
+                    <span
+                        style="background-color: #d1fae5; color: #065f46; padding: 0.25rem 0.5rem; border-radius: 9999px; font-size: 0.875rem; font-weight: 500;">
+                        {{ row["Status"] }}
+                    </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No records found for this date.</p>
+    {% endif %}
+
+    <div style="margin-top: 2rem;">
+        <a href="{{ url_for('attendance_list') }}">&larr; Back to Logs</a>
+    </div>
+</div>
+{% endblock %}
