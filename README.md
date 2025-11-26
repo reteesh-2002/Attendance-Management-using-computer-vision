@@ -19,4 +19,8 @@
 4. **Ensure model files are present**
    - `res10_300x300_ssd_iter_140000.caffemodel`
    - `deploy.prototxt`
-   
+
+5. **Run the program**
+   ```bash
+   python app.py
+   ```
